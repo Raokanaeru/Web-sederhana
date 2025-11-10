@@ -5,41 +5,50 @@
   <title>Proposal Pemilihan Ketua OSIS — Modern</title>
   <style>
     :root{
-      --page-w: 900px;
+      --container-w: 980px;
       --accent-1: linear-gradient(90deg,#0ea5ff,#7c3aed);
-      --accent: #5b7cff;
+      --accent: #4f6bff;
       --ink: #1f2937;
       --muted: #6b7280;
       --card: #ffffff;
-      --glass: rgba(255,255,255,0.6);
+      --glass: rgba(255,255,255,0.7);
       --border: #e6e9ee;
-    }
-    *{box-sizing:border-box}
-    body{
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-      color:var(--ink); background:linear-gradient(180deg,#f3f7ff 0%, #fbfbfd 100%); margin:0; padding:2rem 1rem; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-    }
-    .container{width:var(--page-w); margin:0 auto}.toolbar{
-  display:flex; gap:.6rem; align-items:center; justify-content:space-between; margin-bottom:1rem;
+      --radius: 12px;
+      --shadow: 0 10px 30px rgba(17,24,39,0.06);
+      --gap: 1rem;
+      font-size: 15px;
+    }*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; padding:2rem 1rem; font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; color:var(--ink);
+  background:linear-gradient(180deg,#f3f7ff 0%, #fbfbfd 100%); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  display:flex; justify-content:center;
 }
-.btn{padding:.5rem .9rem; border-radius:.5rem; border:1px solid var(--border); background:transparent; cursor:pointer; font-weight:600}
-.btn.primary{background:var(--accent); color:#fff; border-color:transparent; box-shadow:0 6px 18px rgba(91,124,255,0.18)}
-.search{display:flex; gap:.5rem; align-items:center}
-.search input{padding:.5rem .6rem; border-radius:.5rem; border:1px solid var(--border); min-width:200px}
 
-.page{background:var(--card); border-radius:14px; padding:1.4rem; box-shadow:0 12px 40px rgba(17,24,39,0.06); border:1px solid var(--border)}
+.container{width:var(--container-w); max-width:100%}
+
+/* toolbar */
+.toolbar{display:flex; gap:.75rem; align-items:center; justify-content:space-between; margin-bottom:1rem}
+.controls{display:flex; gap:.5rem; align-items:center}
+.btn{padding:.5rem .85rem; border-radius:10px; border:1px solid var(--border); background:transparent; cursor:pointer; font-weight:600}
+.btn.primary{background:var(--accent); color:#fff; border-color:transparent; box-shadow:0 6px 18px rgba(79,107,255,0.16)}
+.search{display:flex; gap:.5rem; align-items:center}
+.search input{padding:.5rem .7rem; border-radius:8px; border:1px solid var(--border); min-width:220px}
+
+/* page */
+.page{background:var(--card); border-radius:var(--radius); padding:1.2rem; box-shadow:var(--shadow); border:1px solid var(--border)}
 header{display:flex; gap:1rem; align-items:center; border-bottom:1px dashed var(--border); padding-bottom:1rem}
-.logo{width:84px; height:84px; border-radius:12px; background:var(--accent-1); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800; font-size:20px}
-header .head-right{flex:1}
-header h1{margin:0; font-size:1.35rem; letter-spacing:.4px}
+.logo{width:84px; height:84px; border-radius:10px; background:var(--accent-1); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800; font-size:20px}
+.head-right{flex:1}
+header h1{margin:0; font-size:1.25rem; letter-spacing:.2px}
 header p{margin:.25rem 0 0; color:var(--muted)}
 
 .meta-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:.6rem; margin-top:.85rem}
-.meta{background:linear-gradient(180deg,#fff,#fbfdff); padding:.6rem .7rem; border-radius:.7rem; border:1px solid var(--border); font-size:.95rem}
+.meta{background:linear-gradient(180deg,#fff,#fbfdff); padding:.6rem .9rem; border-radius:8px; border:1px solid var(--border); font-size:.95rem}
 .badge{display:inline-block; padding:.25rem .6rem; border-radius:999px; background:#eef2ff; color:#3730a3; border:1px solid #c7d2fe; font-weight:700}
 
 .toc{margin:1rem 0; display:flex; gap:1rem}
-.toc .card{flex:1; padding:1rem; border-radius:.7rem; background:linear-gradient(180deg,#fbfdff,#ffffff); border:1px solid var(--border)}
+.toc .card{flex:1; padding:1rem; border-radius:8px; background:linear-gradient(180deg,#fbfdff,#ffffff); border:1px solid var(--border)}
 .toc ol{margin:0; padding-left:1.05rem}
 .toc a{color:var(--accent); text-decoration:none}
 
@@ -47,7 +56,7 @@ section{margin-top:1rem}
 h3{margin:0 0 .5rem}
 p{margin:0 0 .6rem; text-align:justify}
 
-.two-col{display:grid; grid-template-columns:1fr 320px; gap:1rem}
+.two-col{display:grid; grid-template-columns:1fr 340px; gap:1rem; align-items:start}
 
 table{width:100%; border-collapse:collapse; font-size:.95rem}
 th, td{padding:.6rem .55rem; border:1px solid var(--border); vertical-align:middle}
@@ -55,14 +64,13 @@ th{background:#fbfbff; text-align:left}
 tfoot td{font-weight:700}
 
 .signature-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-top:1.25rem}
-.signature{background:var(--glass); border-radius:.6rem; padding:.8rem; text-align:center; border:1px dashed var(--border)}
+.signature{background:var(--glass); border-radius:8px; padding:.8rem; text-align:center; border:1px dashed var(--border)}
 
 .muted{color:var(--muted)}
 .note{font-size:.9rem; color:var(--muted); margin-top:.5rem}
 
 /* responsive */
 @media (max-width:980px){
-  :root{--page-w:100%}
   .meta-grid{grid-template-columns:repeat(2,1fr)}
   .two-col{grid-template-columns:1fr}
   .signature-grid{grid-template-columns:repeat(2,1fr)}
@@ -75,20 +83,28 @@ tfoot td{font-weight:700}
   .page{box-shadow:none; border:none; border-radius:0}
 }
 
+/* small helpers */
+input[type="number"], input[type="text"]{padding:.35rem .45rem; border-radius:8px; border:1px solid var(--border); font-size:0.95rem}
+.right{text-align:right}
+.muted-block{background:#fbfdff; padding:.6rem; border-radius:8px; border:1px solid var(--border)}
+
   </style>
 </head>
 <body>
   <div class="container">
     <div class="toolbar">
-      <div>
+      <div class="controls">
         <button class="btn primary" onclick="window.print()">Cetak Proposal</button>
-        <button class="btn" onclick="toggleEdit()">Mode Edit</button>
-      </div>
-      <div class="search">
-        <input placeholder="Cari bagian..." id="searchBox" oninput="highlight(this.value)" />
-        <button class="btn" onclick="resetValues()">Reset Anggaran</button>
-      </div>
-    </div><article class="page" id="proposal" contenteditable="false">
+        <button class="btn" id="editToggle">Mode Edit</button>
+        <button class="btn" onclick="fillExample()">Isi Contoh Harga</button>
+        <button class="btn" onclick="exportCSV()">Ekspor CSV</button>
+      </div><div class="search">
+    <input placeholder="Cari bagian (mis. anggaran)" id="searchBox" oninput="findSection(this.value)" />
+    <button class="btn" onclick="resetValues()">Reset Anggaran</button>
+  </div>
+</div>
+
+<article class="page" id="proposal" contenteditable="false">
   <header>
     <div class="logo">OSIS</div>
     <div class="head-right">
@@ -111,13 +127,30 @@ tfoot td{font-weight:700}
     </div>
   </header>
 
+  <nav class="toc" aria-label="Daftar isi">
+    <div class="card">
+      <strong>Daftar Isi</strong>
+      <ol>
+        <li><a href="#ringkasan">Ringkasan Eksekutif</a></li>
+        <li><a href="#bentuk-rangkaian">Bentuk & Rangkaian Kegiatan</a></li>
+        <li><a href="#anggaran">Anggaran Biaya</a></li>
+        <li><a href="#penutup">Penutup & Tanda Tangan</a></li>
+      </ol>
+    </div>
+
+    <div class="card muted-block">
+      <strong>Tips Singkat</strong>
+      <p class="muted" style="margin:.5rem 0 0">Gunakan <em>Mode Edit</em> untuk mengganti teks. Isi harga satuan tanpa titik/koma. Tekan &quot;Isi Contoh Harga&quot; untuk demo.</p>
+    </div>
+  </nav>
+
   <section id="ringkasan">
     <h3>1. Ringkasan Eksekutif</h3>
     <p>Proposal ini mengajukan pelaksanaan <b>Pemilihan Ketua OSIS</b> sebagai proses demokratis di lingkungan sekolah. Rangkaian kegiatan dibuat edukatif, transparan, dan partisipatif. Acara utama direncanakan pada <span class="editable">[hari, tanggal utama]</span> di <span class="editable">[lokasi utama]</span>.</p>
   </section>
 
   <section id="bentuk-rangkaian">
-    <h3>6. Bentuk & Rangkaian Kegiatan</h3>
+    <h3>2. Bentuk & Rangkaian Kegiatan</h3>
     <ol>
       <li>Sosialisasi & Pengumuman</li>
       <li>Pendaftaran Calon</li>
@@ -134,110 +167,111 @@ tfoot td{font-weight:700}
   <div class="two-col">
     <div>
       <section id="anggaran">
-        <h3>10. Anggaran Biaya (versi terbarui)</h3>
-        <p class="note">Harga yang sudah diisi berasal dari daftar yang Anda kirim; kolom dapat diedit langsung di halaman. Total akan dihitung otomatis.</p>
+        <h3>3. Anggaran Biaya (versi terbarui)</h3>
+        <p class="note">Harga yang sudah diisi berasal dari daftar awal; kolom dapat diedit langsung. Total akan dihitung otomatis.</p>
 
-        <table id="anggaranTable">
+        <table id="anggaranTable" aria-label="Tabel anggaran">
           <thead>
-            <tr><th>No</th><th>Uraian</th><th>Qty</th><th>Harga Satuan (Rp)</th><th>Jumlah (Rp)</th></tr>
+            <tr><th style="width:44px">No</th><th>Uraian</th><th style="width:86px">Qty</th><th style="width:140px">Harga Satuan (Rp)</th><th style="width:120px">Jumlah (Rp)</th></tr>
           </thead>
           <tbody>
+            <!-- rows generated statically to keep markup readable -->
             <tr>
               <td>1</td>
               <td>Kotak Suara</td>
-              <td><input type="number" value="1" min="1" onchange="recalc()" style="width:72px"/></td>
-              <td><input type="text" value="15000" onchange="recalc()" style="width:110px"/></td>
-              <td class="sum">15000</td>
+              <td><input type="number" value="1" min="1" onchange="recalc()"/></td>
+              <td><input type="text" value="15000" onchange="recalc()"/></td>
+              <td class="sum right">15.000</td>
             </tr>
             <tr>
               <td>2</td>
               <td>Bilik Suara</td>
-              <td><input type="number" value="3" min="1" onchange="recalc()" style="width:72px"/></td>
-              <td><input type="text" value="[isi_harga]" onchange="recalc()" style="width:110px"/></td>
-              <td class="sum">0</td>
+              <td><input type="number" value="3" min="1" onchange="recalc()"/></td>
+              <td><input type="text" value="" placeholder="0" onchange="recalc()"/></td>
+              <td class="sum right">0</td>
             </tr>
             <tr>
               <td>3</td>
               <td>Surat Suara (rim/paket)</td>
-              <td><input type="number" value="10" min="1" onchange="recalc()" style="width:72px"/></td>
-              <td><input type="text" value="[isi_harga]" onchange="recalc()" style="width:110px"/></td>
-              <td class="sum">0</td>
+              <td><input type="number" value="10" min="1" onchange="recalc()"/></td>
+              <td><input type="text" value="" placeholder="0" onchange="recalc()"/></td>
+              <td class="sum right">0</td>
             </tr>
             <tr>
               <td>4</td>
               <td>Absen Kelas</td>
-              <td><input type="number" value="12" min="1" onchange="recalc()" style="width:72px"/></td>
-              <td><input type="text" value="[isi_harga]" onchange="recalc()" style="width:110px"/></td>
-              <td class="sum">0</td>
+              <td><input type="number" value="12" min="1" onchange="recalc()"/></td>
+              <td><input type="text" value="" placeholder="0" onchange="recalc()"/></td>
+              <td class="sum right">0</td>
             </tr>
             <tr>
               <td>5</td>
               <td>Meja</td>
-              <td><input type="number" value="6" min="1" onchange="recalc()" style="width:72px"/></td>
-              <td><input type="text" value="[isi_harga]" onchange="recalc()" style="width:110px"/></td>
-              <td class="sum">0</td>
+              <td><input type="number" value="6" min="1" onchange="recalc()"/></td>
+              <td><input type="text" value="" placeholder="0" onchange="recalc()"/></td>
+              <td class="sum right">0</td>
             </tr>
             <tr>
               <td>6</td>
               <td>Kursi</td>
-              <td><input type="number" value="80" min="1" onchange="recalc()" style="width:72px"/></td>
-              <td><input type="text" value="[isi_harga]" onchange="recalc()" style="width:110px"/></td>
-              <td class="sum">0</td>
+              <td><input type="number" value="80" min="1" onchange="recalc()"/></td>
+              <td><input type="text" value="" placeholder="0" onchange="recalc()"/></td>
+              <td class="sum right">0</td>
             </tr>
             <tr>
               <td>7</td>
               <td>Sound System (sewa)</td>
-              <td><input type="number" value="1" min="1" onchange="recalc()" style="width:72px"/></td>
-              <td><input type="text" value="[isi_harga]" onchange="recalc()" style="width:110px"/></td>
-              <td class="sum">0</td>
+              <td><input type="number" value="1" min="1" onchange="recalc()"/></td>
+              <td><input type="text" value="" placeholder="0" onchange="recalc()"/></td>
+              <td class="sum right">0</td>
             </tr>
             <tr>
               <td>8</td>
               <td>Tinta</td>
-              <td><input type="number" value="1" min="1" onchange="recalc()" style="width:72px"/></td>
-              <td><input type="text" value="60000" onchange="recalc()" style="width:110px"/></td>
-              <td class="sum">60000</td>
+              <td><input type="number" value="1" min="1" onchange="recalc()"/></td>
+              <td><input type="text" value="60000" onchange="recalc()"/></td>
+              <td class="sum right">60.000</td>
             </tr>
             <tr>
               <td>9</td>
               <td>ID Card Panitia</td>
-              <td><input type="number" value="25" min="1" onchange="recalc()" style="width:72px"/></td>
-              <td><input type="text" value="40000" onchange="recalc()" style="width:110px"/></td>
-              <td class="sum">1000000</td>
+              <td><input type="number" value="25" min="1" onchange="recalc()"/></td>
+              <td><input type="text" value="40000" onchange="recalc()"/></td>
+              <td class="sum right">1.000.000</td>
             </tr>
             <tr>
               <td>10</td>
               <td>MMT / Backdrop</td>
-              <td><input type="number" value="1" min="1" onchange="recalc()" style="width:72px"/></td>
-              <td><input type="text" value="[isi_harga]" onchange="recalc()" style="width:110px"/></td>
-              <td class="sum">0</td>
+              <td><input type="number" value="1" min="1" onchange="recalc()"/></td>
+              <td><input type="text" value="" placeholder="0" onchange="recalc()"/></td>
+              <td class="sum right">0</td>
             </tr>
             <tr>
               <td>11</td>
               <td>Kain (spanduk / dekor)</td>
-              <td><input type="number" value="3" min="1" onchange="recalc()" style="width:72px"/></td>
-              <td><input type="text" value="[isi_harga]" onchange="recalc()" style="width:110px"/></td>
-              <td class="sum">0</td>
+              <td><input type="number" value="3" min="1" onchange="recalc()"/></td>
+              <td><input type="text" value="" placeholder="0" onchange="recalc()"/></td>
+              <td class="sum right">0</td>
             </tr>
             <tr>
               <td>12</td>
               <td>Paku & Pengikat</td>
-              <td><input type="number" value="1" min="1" onchange="recalc()" style="width:72px"/></td>
-              <td><input type="text" value="[isi_harga]" onchange="recalc()" style="width:110px"/></td>
-              <td class="sum">0</td>
+              <td><input type="number" value="1" min="1" onchange="recalc()"/></td>
+              <td><input type="text" value="" placeholder="0" onchange="recalc()"/></td>
+              <td class="sum right">0</td>
             </tr>
             <tr>
               <td>13</td>
               <td>Gabus (busa untuk bilik)</td>
-              <td><input type="number" value="3" min="1" onchange="recalc()" style="width:72px"/></td>
-              <td><input type="text" value="20000" onchange="recalc()" style="width:110px"/></td>
-              <td class="sum">60000</td>
+              <td><input type="number" value="3" min="1" onchange="recalc()"/></td>
+              <td><input type="text" value="20000" onchange="recalc()"/></td>
+              <td class="sum right">60.000</td>
             </tr>
           </tbody>
           <tfoot>
-            <tr><td colspan="4">Sub-total</td><td id="subTotal">0</td></tr>
-            <tr><td colspan="4">Cadangan 10%</td><td id="cadangan">0</td></tr>
-            <tr><td colspan="4">Total Anggaran</td><td id="grandTotal">0</td></tr>
+            <tr><td colspan="4" class="right">Sub-total</td><td id="subTotal" class="right">0</td></tr>
+            <tr><td colspan="4" class="right">Cadangan 10%</td><td id="cadangan" class="right">0</td></tr>
+            <tr><td colspan="4" class="right">Total Anggaran</td><td id="grandTotal" class="right">0</td></tr>
           </tfoot>
         </table>
 
@@ -246,27 +280,25 @@ tfoot td{font-weight:700}
     </div>
 
     <aside>
-      <div class="card" style="padding:1rem; border-radius:.7rem; border:1px solid var(--border); background:linear-gradient(180deg,#fff,#fbfdff)">
-        <h3 class="mb">Ringkasan & Tips</h3>
-        <p class="muted">- Anggaran bersifat estimasi; segera update harga satuan yang akurat dari toko/penyedia lokal.
-        <br>- Gunakan cadangan minimal 10% untuk tak terduga.
-        <br>- Kolom dapat diedit langsung — aktifkan <b>Mode Edit</b> lalu ubah angka.</p>
+      <div class="card" style="padding:1rem; border-radius:8px; border:1px solid var(--border); background:linear-gradient(180deg,#fff,#fbfdff)">
+        <h3 style="margin:0 0 .5rem">Ringkasan & Tips</h3>
+        <p class="muted">- Anggaran bersifat estimasi; segera update harga satuan yang akurat dari toko/penyedia lokal.<br>- Gunakan cadangan minimal 10% untuk tak terduga.<br>- Kolom dapat diedit langsung — aktifkan <b>Mode Edit</b> lalu ubah angka.</p>
 
-        <div style="margin-top:1rem">
+        <div style="margin-top:1rem; display:flex; gap:.5rem">
           <button class="btn primary" onclick="fillExample()">Isi Contoh Harga Otomatis</button>
-          <button class="btn" style="margin-left:.4rem" onclick="exportCSV()">Ekspor CSV</button>
+          <button class="btn" onclick="exportCSV()">Ekspor CSV</button>
         </div>
       </div>
 
-      <div style="margin-top:1rem; padding:1rem; border-radius:.7rem; background:linear-gradient(180deg,#fff,#fbfdff); border:1px solid var(--border)">
-        <h4 class="mb0">Info Pelaksanaan</h4>
-        <p class="muted">Hari/Tanggal: <span class="editable">[Rabu, 15 Januari 2026]</span><br>Waktu: <span class="editable">08.00–14.30 WIB</span><br>Tempat: <span class="editable">Aula / Lapangan Sekolah</span></p>
+      <div style="margin-top:1rem; padding:1rem; border-radius:8px; background:linear-gradient(180deg,#fff,#fbfdff); border:1px solid var(--border)">
+        <h4 style="margin:0 .0 .5rem">Info Pelaksanaan</h4>
+        <p class="muted" style="margin:0">Hari/Tanggal: <span class="editable">[Rabu, 15 Januari 2026]</span><br>Waktu: <span class="editable">08.00–14.30 WIB</span><br>Tempat: <span class="editable">Aula / Lapangan Sekolah</span></p>
       </div>
     </aside>
   </div>
 
   <section id="penutup">
-    <h3>11. Penutup</h3>
+    <h3>4. Penutup</h3>
     <p>Demikian proposal kegiatan diajukan. Kami berharap mendapatkan dukungan penuh dari pihak sekolah sehingga pelaksanaan berjalan lancar dan berintegritas.</p>
 
     <div class="signature-grid">
@@ -276,46 +308,59 @@ tfoot td{font-weight:700}
       <div class="signature"><div class="muted">Mengetahui,</div><div>Ketua OSIS</div><div style="height:72px"></div><div><b><span class="editable">[Nama Ketua OSIS]</span></b></div></div>
     </div>
   </section>
+
 </article>
 
   </div>  <script>
-    function toggleEdit(){
-      const art = document.getElementById('proposal');
-      const now = art.getAttribute('contenteditable') === 'true';
-      art.setAttribute('contenteditable', String(!now));
-      alert('Mode edit: ' + (now ? 'OFF' : 'ON') + '\nKlik teks yang ingin diubah, lalu cetak.');
+    // Utility: parse number from input (accepts digits only)
+    function parseCurrency(v){
+      if(!v && v !== 0) return 0;
+      const n = String(v).replace(/[^0-9]/g,'');
+      return n ? Number(n) : 0;
+    }
+
+    function formatID(n){
+      return Number(n).toLocaleString('id-ID');
     }
 
     function recalc(){
-      const tbody = document.querySelectorAll('#anggaranTable tbody tr');
+      const rows = document.querySelectorAll('#anggaranTable tbody tr');
       let subtotal = 0;
-      tbody.forEach(row=>{
+      rows.forEach(row=>{
         const qty = Number(row.querySelector('input[type="number"]').value) || 0;
         const priceInput = row.querySelector('input[type="text"]');
-        let price = Number(priceInput.value.replace(/[^0-9]/g,'')) || 0;
+        const price = parseCurrency(priceInput.value);
+        const total = qty * price;
         const sumCell = row.querySelector('.sum');
-        const rowTotal = qty * price;
-        sumCell.textContent = rowTotal.toLocaleString('id-ID');
-        subtotal += rowTotal;
+        sumCell.textContent = formatID(total);
+        subtotal += total;
       });
-      document.getElementById('subTotal').textContent = subtotal.toLocaleString('id-ID');
+      document.getElementById('subTotal').textContent = formatID(subtotal);
       const cad = Math.round(subtotal * 0.10);
-      document.getElementById('cadangan').textContent = cad.toLocaleString('id-ID');
-      document.getElementById('grandTotal').textContent = (subtotal + cad).toLocaleString('id-ID');
+      document.getElementById('cadangan').textContent = formatID(cad);
+      document.getElementById('grandTotal').textContent = formatID(subtotal + cad);
     }
 
-    // initial calc
+    // init
     window.addEventListener('load', ()=>{
-      // convert existing numeric sum cells to formatted values
-      document.querySelectorAll('#anggaranTable tbody tr').forEach(row=>{
-        const sumCell = row.querySelector('.sum');
-        sumCell.textContent = Number(sumCell.textContent || 0).toLocaleString('id-ID');
+      // format existing sums
+      document.querySelectorAll('#anggaranTable tbody .sum').forEach(cell=>{
+        cell.textContent = formatID(Number(cell.textContent.replace(/[^0-9]/g,'')) || 0);
       });
       recalc();
     });
 
+    // Edit mode toggle
+    const editBtn = document.getElementById('editToggle');
+    editBtn.addEventListener('click', ()=>{
+      const article = document.getElementById('proposal');
+      const now = article.getAttribute('contenteditable') === 'true';
+      article.setAttribute('contenteditable', String(!now));
+      editBtn.textContent = now ? 'Mode Edit' : 'Selesai Edit';
+      alert('Mode edit: ' + (!now ? 'ON — klik teks untuk ubah.' : 'OFF — perubahan disimpan di browser.') );
+    });
+
     function fillExample(){
-      // fill placeholders with reasonable example prices
       const mapping = {
         'Bilik Suara': 120000,
         'Surat Suara (rim/paket)': 25000,
@@ -341,13 +386,16 @@ tfoot td{font-weight:700}
       rows.push(header.join(','));
       document.querySelectorAll('#anggaranTable tbody tr').forEach((r,i)=>{
         const no = i+1;
-        const uraian = r.children[1].innerText.replace(/,/g,'');
+        const uraian = r.children[1].innerText.replace(/\n/g,' ').replace(/,/g,'');
         const qty = r.querySelector('input[type="number"]').value;
-        const price = r.querySelector('input[type="text"]').value.replace(/[^0-9]/g,'') || '0';
-        const jumlah = r.querySelector('.sum').textContent.replace(/\./g,'');
+        const price = parseCurrency(r.querySelector('input[type="text"]').value) || 0;
+        const jumlah = r.querySelector('.sum').textContent.replace(/\./g,'') || 0;
         rows.push([no, '"'+uraian+'"', qty, price, jumlah].join(','));
       });
-      const footer = [',,,Sub-total,'+document.getElementById('subTotal').textContent.replace(/\./g,''),',,,Cadangan,'+document.getElementById('cadangan').textContent.replace(/\./g,''),',,,Total,'+document.getElementById('grandTotal').textContent.replace(/\./g,'')];
+      const footer = [];
+      footer.push([',,,Sub-total,'+document.getElementById('subTotal').textContent.replace(/\./g,'')].join(','));
+      footer.push([',,,Cadangan,'+document.getElementById('cadangan').textContent.replace(/\./g,'')].join(','));
+      footer.push([',,,Total,'+document.getElementById('grandTotal').textContent.replace(/\./g,'')].join(','));
       const csvContent = rows.concat(footer).join('\n');
       const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
       const link = document.createElement('a');
@@ -357,14 +405,19 @@ tfoot td{font-weight:700}
     }
 
     function resetValues(){
-      if(confirm('Reset semua harga ke nilai awal contoh?')) fillExample();
+      if(confirm('Reset harga ke contoh default?')){
+        fillExample();
+      }
     }
 
-    function highlight(q){
-      // simple highlight: scroll to matching section id if typed exactly like 'anggaran' or 'ringkasan'
+    function findSection(q){
       if(!q) return;
-      const el = document.getElementById(q.toLowerCase());
+      q = q.trim().toLowerCase();
+      const map = { 'anggaran':'anggaran', 'ringkasan':'ringkasan','penutup':'penutup','rangkaian':'bentuk-rangkaian' };
+      const id = map[q] || q;
+      const el = document.getElementById(id);
       if(el) el.scrollIntoView({behavior:'smooth', block:'center'});
     }
+
   </script></body>
-</html>
+                    </html>
