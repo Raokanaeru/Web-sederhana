@@ -1,134 +1,366 @@
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPE html><html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Dapse GF</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Proposal Pemilihan Ketua OSIS — Versi Berwarna</title>
   <style>
-    body {
-      font-family: 'Quicksand', sans-serif;
-      background: url('https://www.transparenttextures.com/patterns/flowers.png') repeat, #ffe6f0;
-      margin: 0;
-      padding: 0;
-      text-align: center;
+    :root{
+      --page-w: 900px;
+      --accent-1: #0b6cff;
+      --accent-2: #06b6d4;
+      --accent-3: #7c3aed;
+      --ink: #0f172a;
+      --muted: #6b7280;
+      --border: #e6eef8;
+      --card: #fbfdff;
     }
+    *{box-sizing:border-box}
+    body{
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color:var(--ink); background: linear-gradient(180deg,#f1f6ff 0%, #fdfdfd 100%); margin:0; -webkit-font-smoothing:antialiased; line-height:1.6;
+    }/* Controls */
+.controls{
+  position:sticky; top:0; z-index:30; display:flex; gap:.5rem; justify-content:center; align-items:center;
+  padding:.8rem; background:linear-gradient(90deg, rgba(255,255,255,.85), rgba(255,255,255,.7));
+  border-bottom:1px solid rgba(11,108,255,.08); backdrop-filter: blur(6px);
+}
+.controls .btn{ border:1px solid var(--border); padding:.6rem .9rem; border-radius:.6rem; cursor:pointer; background:#fff; font-weight:700 }
+.controls .btn.primary{ background:linear-gradient(90deg,var(--accent-1), var(--accent-2)); color:#fff; border:none }
+.controls .tip{ font-size:.9rem; color:var(--muted); margin-left:.5rem }
 
-    .social-links {
-      position: fixed;
-      top: 15px;
-      right: 20px;
-      z-index: 999;
-    }
+/* Page */
+.page{ width:var(--page-w); margin:1.25rem auto 3rem; background:var(--card); border-radius:14px; overflow:hidden; box-shadow:0 12px 40px rgba(16,24,40,.08); border:1px solid rgba(99,102,241,.06);
+  padding:0 0 2rem }
 
-    .social-links a {
-      margin-left: 10px;
-      text-decoration: none;
-      font-size: 16px;
-      color: #e91e63;
-      background: #fff;
-      padding: 6px 12px;
-      border-radius: 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      transition: 0.3s;
-    }
+header{
+  padding:1.6rem 2rem; display:flex; gap:1.5rem; align-items:center; background:linear-gradient(90deg, rgba(11,108,255,.08), rgba(124,58,237,.04));
+}
+.logo{ width:84px; height:84px; border-radius:12px; background:linear-gradient(135deg,var(--accent-3), var(--accent-1)); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800; font-size:1.25rem }
+header .head{ flex:1 }
+header h1{ margin:0; font-size:1.35rem; letter-spacing:.6px }
+header h2{ margin:.25rem 0 0; color:var(--muted); font-weight:600 }
+header .meta-small{ margin-top:.6rem; display:flex; gap:.5rem; flex-wrap:wrap; align-items:center }
+.badge{ display:inline-block; padding:.25rem .6rem; border-radius:999px; font-size:.82rem; background:linear-gradient(90deg,#eef2ff,#eef9ff); color: #0b6cff; border:1px solid rgba(11,108,255,.12) }
 
-    .social-links a:hover {
-      background-color: #f8bbd0;
-      color: white;
-    }
+.content{ padding:1.5rem 2rem }
+.toc{ background:linear-gradient(180deg,#ffffff,#fbfdff); border:1px solid var(--border); padding:1rem; border-radius:10px }
+.toc a{ color:var(--accent-1); text-decoration:none; font-weight:700 }
+.toc ol{ margin:.5rem 0 0 1rem }
 
-    h1 {
-      font-family: 'Pacifico', cursive;
-      font-size: 36px;
-      color: #e91e63;
-      margin-top: 80px;
-    }
+h3{ margin:1rem 0 .25rem; color:var(--accent-3) }
+p{ text-align:justify }
+.muted{ color:var(--muted) }
 
-    p {
-      color: #555;
-      font-size: 18px;
-      margin: 10px 20px 30px;
-    }
+.meta{ display:grid; grid-template-columns: repeat(2,1fr); gap:.5rem 1rem; margin-top:.6rem }
+.meta div{ padding:.45rem .65rem; background:#fff; border:1px solid var(--border); border-radius:.6rem }
 
-    .horizontal-gallery {
-      display: flex;
-      flex-direction: row;
-      gap: 20px;
-      overflow-x: auto;
-      padding: 20px;
-      margin: 0 20px;
-      scroll-snap-type: x mandatory;
-    }
+table{ border-collapse: collapse; width:100%; margin:.5rem 0 1rem; background:#fff }
+th, td{ border:1px solid rgba(14,165,233,.06); padding:.6rem .75rem; vertical-align:top }
+th{ background:linear-gradient(90deg,#f8fafc,#f1f5f9); text-align:left }
+tfoot td{ font-weight:800 }
 
-    .photo-box {
-      background: white;
-      padding: 10px;
-      border-radius: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      min-width: 200px;
-      scroll-snap-align: start;
-    }
+.two-col{ display:grid; grid-template-columns:1fr 1fr; gap:1rem }
 
-    .photo-box img {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
-      border-radius: 15px;
-    }
+.signature-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:1.25rem; margin-top:1.25rem }
+.signature{ background:linear-gradient(180deg,#fff,#fbfdff); border:1px solid var(--border); padding:1rem; border-radius:8px; text-align:center }
+.signature .space{ height:78px }
 
-    .caption {
-      margin-top: 10px;
-      font-weight: bold;
-      color: #e91e63;
-      font-size: 16px;
-    }
+/* budget styles */
+.currency{ font-weight:700 }
+.price[contenteditable]{ outline: 2px dashed rgba(99,102,241,.12); padding:.15rem .35rem; border-radius:6px }
 
-    footer {
-      background-color: #ffc0cb;
-      padding: 20px;
-      font-size: 16px;
-      color: #fff;
-      font-family: 'Pacifico', cursive;
-      margin-top: 30px;
-    }
+.accent-pill{ display:inline-block; padding:.25rem .5rem; background:linear-gradient(90deg,var(--accent-1),var(--accent-2)); color:#fff; border-radius:999px; font-size:.82rem }
 
-    /* Optional: hide scrollbar in some browsers */
-    .horizontal-gallery::-webkit-scrollbar {
-      display: none;
-    }
+/* Responsive */
+@media (max-width:980px){ :root{ --page-w:92vw } .two-col{ grid-template-columns:1fr } .meta{ grid-template-columns:1fr } .signature-grid{ grid-template-columns:1fr } }
+
+/* Print */
+@media print{
+  body{ background:#fff }
+  .controls{ display:none !important }
+  .page{ width:auto; border:none; box-shadow:none; padding:0; margin:0 }
+  header{ background:none }
+  a[href^="http"]::after{ content:" (" attr(href) ")"; font-size:.8em; color:#999 }
+  .price[contenteditable]{ outline:none }
+}
+
   </style>
 </head>
 <body>
+  <div class="controls">
+    <button class="btn primary" onclick="window.print()">Cetak Proposal</button>
+    <button class="btn" onclick="toggleEdit()">Mode Edit</button>
+    <div class="tip">Versi: <span class="accent-pill">Berwarna • Interaktif</span></div>
+  </div>  <article class="page" id="proposal" contenteditable="false">
+    <header>
+      <div class="logo">OS</div>
+      <div class="head">
+        <div style="display:flex; align-items:center; gap:.6rem; justify-content:space-between">
+          <div>
+            <div class="badge">Dokumen Proposal</div>
+            <h1>PEMILIHAN KETUA OSIS</h1>
+            <h2 class="mb0">Tahun Pelajaran 2025/2026 — <span class="muted">SMA/SMK <span contenteditable="true" class="editable">[Nama Sekolah]</span></span></h2>
+          </div>
+          <div style="text-align:right">
+            <div class="muted">Disusun oleh</div>
+            <div style="font-weight:700">Daffa Pranaja Ananda Susilo</div>
+            <div style="font-size:.85rem;color:var(--muted)">X TKJ 2</div>
+          </div>
+        </div><div class="meta-small" style="margin-top:.65rem">
+      <div class="muted">Tanggal: <span contenteditable="true">[Isi tanggal penyusunan]</span></div>
+      <div class="muted">Lokasi: <span contenteditable="true">[Alamat/Lokasi Sekolah]</span></div>
+    </div>
 
-  <!-- Link Sosial Media -->
-  <div class="social-links">
-    <a href="https://instagram.com/nioamirtysaanty" target="_blank">📸 IG</a>
-    <a href="https://tiktok.com/@dapseworld" target="_blank">🎵 TikTok</a>
-    <a href="https://wa.me/6288986283077" target="_blank">💬 WA</a>
+    <div class="meta" style="margin-top:.9rem">
+      <div><b>Bidang</b>: Kesiswaan / OSIS</div>
+      <div><b>Status</b>: <span class="badge">Rencana • Rapat Panitia</span></div>
+    </div>
+
   </div>
+</header>
 
-  <h1>💕 Dapse Gf 💕</h1>
-  <p>Foto-foto ini adalah wujud asli pacar/istri dapse 💗</p>
+<div class="content">
+  <section class="toc">
+    <strong>Daftar Isi</strong>
+    <ol>
+      <li><a href="#ringkasan">Ringkasan Eksekutif</a></li>
+      <li><a href="#latar-belakang">Latar Belakang</a></li>
+      <li><a href="#bentuk-rangkaian">Bentuk & Rangkaian</a></li>
+      <li><a href="#waktu-tempat">Waktu & Tempat</a></li>
+      <li><a href="#panitia">Susunan Panitia</a></li>
+      <li><a href="#anggaran">Anggaran Biaya</a></li>
+      <li><a href="#lampiran">Lampiran</a></li>
+    </ol>
+  </section>
 
-  <div class="horizontal-gallery">
-    <div class="photo-box">
-      <img src="https://files.catbox.moe/7y1xsi.jpg" alt="Pacar Cantik 1">
-      <div class="caption">Karina Aespa 🌺</div>
+  <section id="ringkasan">
+    <h3>1. Ringkasan Eksekutif</h3>
+    <p>
+      Proposal ini mengajukan pelaksanaan <b>Pemilihan Ketua OSIS</b> sebagai proses demokratis di lingkungan sekolah
+      untuk memilih pemimpin organisasi siswa yang amanah, inspiratif, dan berintegritas. Kegiatan meliputi sosialisasi,
+      pendaftaran calon, debat, kampanye damai, pemungutan suara, serta pelantikan. Acara direncanakan pada
+      <span contenteditable="true">[hari, tanggal utama]</span> di <span contenteditable="true">[lokasi utama]</span>.
+    </p>
+  </section>
+
+  <section id="latar-belakang">
+    <h3>2. Latar Belakang</h3>
+    <p>
+      OSIS merupakan wadah pembinaan kesiswaan yang strategis dalam mengembangkan kepemimpinan. Pemilihan Ketua OSIS
+      memastikan regenerasi kepemimpinan yang sehat, sekaligus menjadi sarana edukasi demokrasi yang jujur, adil, dan langsung.
+    </p>
+  </section>
+
+  <section id="bentuk-rangkaian">
+    <h3>3. Bentuk &amp; Rangkaian Kegiatan</h3>
+    <ol>
+      <li>Sosialisasi &amp; Pengumuman</li>
+      <li>Pendaftaran Calon</li>
+      <li>Verifikasi Berkas &amp; Wawancara</li>
+      <li>Debat Kandidat / Penyampaian Visi-Misi</li>
+      <li>Kampanye Damai</li>
+      <li>Masa Tenang (1 hari sebelum)</li>
+      <li>Pemungutan Suara (TPS / e-Voting)</li>
+      <li>Penghitungan Suara &amp; Pengumuman</li>
+      <li>Pelantikan</li>
+    </ol>
+
+    <div class="two-col">
+      <div>
+        <table>
+          <thead><tr><th>Tahap</th><th>Waktu</th></tr></thead>
+          <tbody>
+            <tr><td>Sosialisasi</td><td contenteditable="true">[dd–dd/mm/yyyy]</td></tr>
+            <tr><td>Pendaftaran</td><td contenteditable="true">[dd–dd/mm/yyyy]</td></tr>
+            <tr><td>Verifikasi</td><td contenteditable="true">[dd–dd/mm/yyyy]</td></tr>
+            <tr><td>Debat Kandidat</td><td contenteditable="true">[dd/mm/yyyy]</td></tr>
+            <tr><td>Pemungutan Suara</td><td contenteditable="true">[dd/mm/yyyy]</td></tr>
+            <tr><td>Pelantikan</td><td contenteditable="true">[dd/mm/yyyy]</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <table>
+          <thead><tr><th>Output Tahap</th><th>Penanggung Jawab</th></tr></thead>
+          <tbody>
+            <tr><td>Juknis &amp; Poster Sosialisasi</td><td contenteditable="true">Seksi Humas</td></tr>
+            <tr><td>Daftar Calon &amp; Berkas</td><td contenteditable="true">Seksi Administrasi</td></tr>
+            <tr><td>Daftar Final Kandidat</td><td contenteditable="true">Pembina &amp; Panitia</td></tr>
+            <tr><td>Form C1, Rekap Suara</td><td contenteditable="true">Sekretaris</td></tr>
+            <tr><td>SK Ketua OSIS Terpilih</td><td contenteditable="true">Kepala Sekolah</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-    <div class="photo-box">
-      <img src="https://files.catbox.moe/jaide4.jpg" alt="Pacar Cantik 2">
-      <div class="caption">Ningning Aespa 🖤</div>
-    </div>
-    <div class="photo-box">
-      <img src="https://files.catbox.moe/b6g6v4.jpg" alt="Pacar Cantik 3">
-      <div class="caption">Asa Babymonster 💕</div>
-    </div>
-    <!-- Tambah lagi kalau mau -->
-  </div>
+  </section>
 
-  <footer>
-    I love You 😹💘
-  </footer>
+  <section id="waktu-tempat">
+    <h3>4. Waktu &amp; Tempat</h3>
+    <p>Hari/Tanggal utama pelaksanaan: <span contenteditable="true">[contoh: Rabu, 15 Januari 2026]</span></p>
+    <p>Waktu: <span contenteditable="true">08.00–14.30 WIB</span></p>
+    <p>Tempat: <span contenteditable="true">Aula / Lapangan Sekolah</span></p>
+  </section>
 
-</body>
+  <section id="panitia">
+    <h3>5. Susunan Panitia</h3>
+    <table>
+      <thead><tr><th>Jabatan</th><th>Nama</th></tr></thead>
+      <tbody>
+        <tr><td>Pelindung</td><td contenteditable="true">Kepala Sekolah</td></tr>
+        <tr><td>Pembina</td><td contenteditable="true">Pembina OSIS</td></tr>
+        <tr><td>Ketua Panitia</td><td contenteditable="true">[Nama]</td></tr>
+        <tr><td>Sekretaris</td><td contenteditable="true">[Nama]</td></tr>
+        <tr><td>Bendahara</td><td contenteditable="true">[Nama]</td></tr>
+        <tr><td>Seksi Acara</td><td contenteditable="true">[Nama-nama]</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="anggaran">
+    <h3>6. Anggaran Biaya (Versi Baru)</h3>
+    <p class="muted">Beberapa harga sudah diisi sesuai data yang Anda berikan; sel yang bertanda <i>[Isi Harga]</i> dapat diedit langsung.</p>
+
+    <table id="budget">
+      <thead>
+        <tr><th>No</th><th>Uraian</th><th>Qty</th><th>Harga Satuan (Rp)</th><th>Jumlah (Rp)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Kotak Suara</td><td>1 buah</td><td><span class="price" data-value="15000">15.000</span></td><td class="line-total">15.000</td></tr>
+        <tr><td>2</td><td>Bilik Suara</td><td>1 set</td><td><span class="price" contenteditable="true">[Isi Harga]</span></td><td class="line-total">[Isi]</td></tr>
+        <tr><td>3</td><td>Surat Suara (printing)</td><td>1 paket</td><td><span class="price" contenteditable="true">[Isi Harga]</span></td><td class="line-total">[Isi]</td></tr>
+        <tr><td>4</td><td>Absen Kelas</td><td>1 paket</td><td><span class="price" contenteditable="true">[Isi Harga]</span></td><td class="line-total">[Isi]</td></tr>
+        <tr><td>5</td><td>Meja (registrasi)</td><td>3 buah</td><td><span class="price" contenteditable="true">[Isi Harga]</span></td><td class="line-total">[Isi]</td></tr>
+        <tr><td>6</td><td>Kursi</td><td>20 buah</td><td><span class="price" contenteditable="true">[Isi Harga]</span></td><td class="line-total">[Isi]</td></tr>
+        <tr><td>7</td><td>Sound System (sewa)</td><td>1 hari</td><td><span class="price" contenteditable="true">[Isi Harga]</span></td><td class="line-total">[Isi]</td></tr>
+        <tr><td>8</td><td>Tinta</td><td>1 paket</td><td><span class="price" data-value="60000">60.000</span></td><td class="line-total">60.000</td></tr>
+        <tr><td>9</td><td>Idicart Panitia</td><td>1 paket</td><td><span class="price" data-value="40000">40.000</span></td><td class="line-total">40.000</td></tr>
+        <tr><td>10</td><td>MMT (monitor/projector—opsional)</td><td>1 hari</td><td><span class="price" contenteditable="true">[Isi Harga]</span></td><td class="line-total">[Isi]</td></tr>
+        <tr><td>11</td><td>Kain (dekorasi)</td><td>3 m</td><td><span class="price" contenteditable="true">[Isi Harga]</span></td><td class="line-total">[Isi]</td></tr>
+        <tr><td>12</td><td>Paku</td><td>1 paket</td><td><span class="price" contenteditable="true">[Isi Harga]</span></td><td class="line-total">[Isi]</td></tr>
+        <tr><td>13</td><td>Gabus</td><td>1 lembar</td><td><span class="price" data-value="20000">20.000</span></td><td class="line-total">20.000</td></tr>
+        <tr><td>14</td><td>Tak Terduga</td><td>1 paket</td><td><span class="price" contenteditable="true">[Isi Harga]</span></td><td class="line-total">[Isi]</td></tr>
+      </tbody>
+      <tfoot>
+        <tr><td colspan="4">Sub-total (otomatis)</td><td id="subtotal">0</td></tr>
+        <tr><td colspan="4">Cadangan 10%</td><td id="cadangan">0</td></tr>
+        <tr><td colspan="4">Total Anggaran</td><td id="total">0</td></tr>
+      </tfoot>
+    </table>
+
+    <p class="tip muted">Petunjuk: Klik sel harga yang bertuliskan <i>[Isi Harga]</i> untuk mengeditnya. Anda dapat memasukkan angka dengan atau tanpa tanda titik ribuan; tambahkan huruf 'k' (mis. 15k) juga dikenali.</p>
+  </section>
+
+  <section id="lampiran">
+    <h3>7. Lampiran</h3>
+    <h4>Tata Tertib Singkat Kampanye</h4>
+    <ul>
+      <li>Dilarang menjelekkan lawan; fokus pada visi-misi.</li>
+      <li>Dilarang merusak fasilitas.</li>
+      <li>Kampanye sesuai jadwal, tidak mengganggu KBM.</li>
+      <li>Konten kampanye wajib disetujui panitia/pembina.</li>
+    </ul>
+
+    <div class="signature-grid">
+      <div class="signature">
+        <div class="muted">Mengetahui,</div>
+        <div>Kepala Sekolah</div>
+        <div class="space"></div>
+        <div><b contenteditable="true">[Nama Kepala Sekolah]</b></div>
+      </div>
+      <div class="signature">
+        <div class="muted">Menyetujui,</div>
+        <div>Pembina OSIS</div>
+        <div class="space"></div>
+        <div><b contenteditable="true">[Nama Pembina]</b></div>
+      </div>
+      <div class="signature">
+        <div class="muted">Pengusul,</div>
+        <div>Ketua Panitia</div>
+        <div class="space"></div>
+        <div><b contenteditable="true">[Nama Ketua Panitia]</b></div>
+      </div>
+      <div class="signature">
+        <div class="muted">Mengetahui,</div>
+        <div>Ketua OSIS</div>
+        <div class="space"></div>
+        <div><b contenteditable="true">[Nama Ketua OSIS]</b></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+  </article>  <script>
+    function toggleEdit(){
+      const art = document.getElementById('proposal');
+      const now = art.getAttribute('contenteditable') === 'true';
+      art.setAttribute('contenteditable', String(!now));
+      alert('Mode edit: ' + (now ? 'OFF' : 'ON') + '\nKlik teks yang ingin diubah, lalu cetak.');
+      // Re-init calculation when toggling on
+      if(!now) setTimeout(calculateTotals,300);
+    }
+
+    // Helper: parse price strings like "15.000", "15k", "15000"
+    function parsePrice(text){
+      if(!text) return NaN;
+      text = String(text).trim().toLowerCase();
+      if(text === '' || text.includes('[isi')) return NaN;
+      // remove dots and commas and spaces
+      text = text.replace(/\./g,'').replace(/,/g,'').replace(/\s/g,'');
+      // handle k suffix
+      if(text.endsWith('k')){
+        const n = parseFloat(text.slice(0,-1));
+        return isNaN(n) ? NaN : Math.round(n * 1000);
+      }
+      const n = parseFloat(text);
+      return isNaN(n) ? NaN : Math.round(n);
+    }
+
+    function formatRp(n){
+      if(isNaN(n)) return '[Isi]';
+      return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
+
+    function calculateTotals(){
+      const rows = document.querySelectorAll('#budget tbody tr');
+      let subtotal = 0;
+      rows.forEach(row=>{
+        const priceEl = row.querySelector('.price');
+        const qtyCell = row.children[2];
+        const qtyText = qtyCell ? qtyCell.textContent.trim() : '1';
+        const qty = parseInt(qtyText) || 1;
+        const priceRaw = priceEl ? priceEl.textContent.trim() : '';
+        const price = parsePrice(priceRaw) || 0;
+        const lineTotal = price * qty;
+        const lineCell = row.querySelector('.line-total');
+        if(lineCell){
+          lineCell.textContent = isNaN(lineTotal) || lineTotal === 0 ? '[Isi]' : formatRp(lineTotal);
+        }
+        subtotal += lineTotal;
+      });
+      document.getElementById('subtotal').textContent = formatRp(subtotal);
+      const cad = Math.round(subtotal * 0.1);
+      document.getElementById('cadangan').textContent = formatRp(cad);
+      document.getElementById('total').textContent = isNaN(subtotal) ? '[Isi]' : formatRp(subtotal + cad);
+    }
+
+    // Recalculate when user edits a price cell
+    document.addEventListener('input', function(e){
+      if(e.target && e.target.classList && e.target.classList.contains('price')){
+        // update data-value attribute when the content looks numeric
+        const val = parsePrice(e.target.textContent);
+        if(!isNaN(val)) e.target.setAttribute('data-value', val);
+        calculateTotals();
+      }
+    });
+
+    // Initial calc (use prefilled data-value attributes)
+    window.addEventListener('DOMContentLoaded', ()=>{
+      // set content of price spans that have data-value but not visible formatted
+      document.querySelectorAll('.price[data-value]').forEach(el=>{
+        if(!el.textContent || el.textContent.trim()==='') el.textContent = formatRp(parseInt(el.getAttribute('data-value')));
+      });
+      calculateTotals();
+    });
+  </script></body>
 </html>
