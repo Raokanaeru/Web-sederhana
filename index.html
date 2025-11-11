@@ -1,423 +1,352 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Proposal Pemilihan Ketua OSIS — Modern</title>
-  <style>
-    :root{
-      --container-w: 980px;
-      --accent-1: linear-gradient(90deg,#0ea5ff,#7c3aed);
-      --accent: #4f6bff;
-      --ink: #1f2937;
-      --muted: #6b7280;
-      --card: #ffffff;
-      --glass: rgba(255,255,255,0.7);
-      --border: #e6e9ee;
-      --radius: 12px;
-      --shadow: 0 10px 30px rgba(17,24,39,0.06);
-      --gap: 1rem;
-      font-size: 15px;
-    }*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0; padding:2rem 1rem; font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; color:var(--ink);
-  background:linear-gradient(180deg,#f3f7ff 0%, #fbfbfd 100%); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-  display:flex; justify-content:center;
-}
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Proposal Pemilihan Pengurus OSIS 2025/2026</title>
+<style>
+  :root{--ink:#111827;--muted:#6b7280;--line:#e5e7eb;--card:#f9fafb;--brand:#0ea5e9}
+  *{box-sizing:border-box}
+  body{margin:0;font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial;color:var(--ink);background:#fff}
+  .wrap{max-width:900px;margin:32px auto;padding:0 20px}
+  header{text-align:center;margin-bottom:24px}
+  h1{margin:.2em 0;font-size:clamp(22px,3.6vw,34px)}
+  h2{margin:28px 0 10px;font-size:clamp(18px,3.2vw,24px);border-bottom:2px solid var(--line);padding-bottom:6px}
+  p{margin:.5em 0}
+  .meta{display:grid;grid-template-columns:160px 1fr;gap:10px;border:1px solid var(--line);padding:12px;border-radius:10px;background:var(--card)}
+  .meta div{padding:4px 0}
+  .table{width:100%; border-collapse:collapse; margin:.4rem 0 1rem}
+  .table th,.table td{border:1px solid var(--line);padding:8px 10px}
+  .table th{background:#f3f4f6;text-align:center}
+  .note{color:var(--muted);font-size:14px}
+  .toc{border:1px solid var(--line);border-radius:12px;padding:10px;background:var(--card)}
+  .toc a{display:block;padding:6px 8px;color:#111827;text-decoration:none}
+  .toc a:hover{background:#eef6ff}
+  .sign{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:24px 0}
+  .box{border:1px dashed var(--line);border-radius:10px;padding:12px;min-height:120px}
+  @media print{
+    .toc{display:none}
+    .wrap{max-width:none;margin:0;padding:0 12mm}
+    a{color:inherit;text-decoration:none}
+  }
 
-.container{width:var(--container-w); max-width:100%}
-
-/* toolbar */
-.toolbar{display:flex; gap:.75rem; align-items:center; justify-content:space-between; margin-bottom:1rem}
-.controls{display:flex; gap:.5rem; align-items:center}
-.btn{padding:.5rem .85rem; border-radius:10px; border:1px solid var(--border); background:transparent; cursor:pointer; font-weight:600}
-.btn.primary{background:var(--accent); color:#fff; border-color:transparent; box-shadow:0 6px 18px rgba(79,107,255,0.16)}
-.search{display:flex; gap:.5rem; align-items:center}
-.search input{padding:.5rem .7rem; border-radius:8px; border:1px solid var(--border); min-width:220px}
-
-/* page */
-.page{background:var(--card); border-radius:var(--radius); padding:1.2rem; box-shadow:var(--shadow); border:1px solid var(--border)}
-header{display:flex; gap:1rem; align-items:center; border-bottom:1px dashed var(--border); padding-bottom:1rem}
-.logo{width:84px; height:84px; border-radius:10px; background:var(--accent-1); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800; font-size:20px}
-.head-right{flex:1}
-header h1{margin:0; font-size:1.25rem; letter-spacing:.2px}
-header p{margin:.25rem 0 0; color:var(--muted)}
-
-.meta-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:.6rem; margin-top:.85rem}
-.meta{background:linear-gradient(180deg,#fff,#fbfdff); padding:.6rem .9rem; border-radius:8px; border:1px solid var(--border); font-size:.95rem}
-.badge{display:inline-block; padding:.25rem .6rem; border-radius:999px; background:#eef2ff; color:#3730a3; border:1px solid #c7d2fe; font-weight:700}
-
-.toc{margin:1rem 0; display:flex; gap:1rem}
-.toc .card{flex:1; padding:1rem; border-radius:8px; background:linear-gradient(180deg,#fbfdff,#ffffff); border:1px solid var(--border)}
-.toc ol{margin:0; padding-left:1.05rem}
-.toc a{color:var(--accent); text-decoration:none}
-
-section{margin-top:1rem}
-h3{margin:0 0 .5rem}
-p{margin:0 0 .6rem; text-align:justify}
-
-.two-col{display:grid; grid-template-columns:1fr 340px; gap:1rem; align-items:start}
-
-table{width:100%; border-collapse:collapse; font-size:.95rem}
-th, td{padding:.6rem .55rem; border:1px solid var(--border); vertical-align:middle}
-th{background:#fbfbff; text-align:left}
-tfoot td{font-weight:700}
-
-.signature-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-top:1.25rem}
-.signature{background:var(--glass); border-radius:8px; padding:.8rem; text-align:center; border:1px dashed var(--border)}
-
-.muted{color:var(--muted)}
-.note{font-size:.9rem; color:var(--muted); margin-top:.5rem}
-
-/* responsive */
-@media (max-width:980px){
-  .meta-grid{grid-template-columns:repeat(2,1fr)}
-  .two-col{grid-template-columns:1fr}
-  .signature-grid{grid-template-columns:repeat(2,1fr)}
-}
-
-/* print */
-@media print{
-  body{background:#fff}
-  .toolbar{display:none}
-  .page{box-shadow:none; border:none; border-radius:0}
-}
-
-/* small helpers */
-input[type="number"], input[type="text"]{padding:.35rem .45rem; border-radius:8px; border:1px solid var(--border); font-size:0.95rem}
-.right{text-align:right}
-.muted-block{background:#fbfdff; padding:.6rem; border-radius:8px; border:1px solid var(--border)}
-
-  </style>
+  /* ==== ORG CHART (bagan bercabang untuk Bagian 9) ==== */
+  .chart{display:flex;justify-content:center;overflow:auto;padding:10px}
+  .tree{position:relative}
+  .tree ul{padding-top:20px;position:relative;padding-left:0;list-style:none;margin:0}
+  .tree li{float:left;text-align:center;list-style-type:none;position:relative;padding:20px 10px 0 10px}
+  .tree li::before,.tree li::after{
+    content:'';position:absolute;top:0;right:50%;
+    border-top:2px solid var(--line);width:50%;height:20px
+  }
+  .tree li::after{right:auto;left:50%;border-left:none;border-right:2px solid var(--line)}
+  .tree li:only-child::after,.tree li:only-child::before{display:none}
+  .tree li:only-child{padding-top:0}
+  .tree li:first-child::before,.tree li:last-child::after{border:none}
+  .tree li:last-child::before{border-top:2px solid var(--line);border-left:2px solid var(--line);border-top-left-radius:8px}
+  .tree li:first-child::after{border-top:2px solid var(--line);border-right:2px solid var(--line);border-top-right-radius:8px}
+  .tree ul ul::before{content:'';position:absolute;top:0;left:50%;border-left:2px solid var(--line);width:0;height:20px}
+  .node{
+    display:inline-block;min-width:190px;background:var(--card);border:1px solid var(--line);
+    border-radius:14px;padding:12px 14px;text-align:left;box-shadow:0 1px 0 rgba(0,0,0,.02)
+  }
+  .node .role{font-size:12px;letter-spacing:.3px;text-transform:uppercase;color:#0f172a;font-weight:700}
+  .node .name{font-weight:700;margin-top:2px}
+  .node .detail{font-size:13px;color:var(--muted);margin-top:6px}
+  .node ul{margin:8px 0 0 14px;padding:0 0 0 12px;border-left:2px dashed var(--line)}
+  .node li{float:none;padding:4px 0;margin:0}
+  .node li::before,.node li::after{display:none}
+  .toggle{display:inline-block;margin-left:8px;font-size:12px;color:var(--brand);cursor:pointer}
+  .collapsed>ul{display:none}
+</style>
 </head>
 <body>
-  <div class="container">
-    <div class="toolbar">
-      <div class="controls">
-        <button class="btn primary" onclick="window.print()">Cetak Proposal</button>
-        <button class="btn" id="editToggle">Mode Edit</button>
-        <button class="btn" onclick="fillExample()">Isi Contoh Harga</button>
-        <button class="btn" onclick="exportCSV()">Ekspor CSV</button>
-      </div><div class="search">
-    <input placeholder="Cari bagian (mis. anggaran)" id="searchBox" oninput="findSection(this.value)" />
-    <button class="btn" onclick="resetValues()">Reset Anggaran</button>
-  </div>
-</div>
+<div class="wrap">
 
-<article class="page" id="proposal" contenteditable="false">
   <header>
-    <div class="logo">OSIS</div>
-    <div class="head-right">
-      <div style="display:flex;justify-content:space-between;align-items:center">
-        <div>
-          <h1>Proposal Pemilihan Ketua OSIS — Tahun Pelajaran 2025/2026</h1>
-          <p class="muted">SMA/SMK <span class="editable">[Nama Sekolah]</span> • Dokumen Interaktif</p>
-        </div>
-        <div style="text-align:right">
-          <div class="badge">Proposal</div>
-        </div>
-      </div>
-
-      <div class="meta-grid" style="margin-top:.85rem">
-        <div class="meta"><b>Disusun oleh</b><br>Daffa Pranaja Ananda Susilo (X TKJ 2)</div>
-        <div class="meta"><b>Bidang</b><br>Kesiswaan / OSIS</div>
-        <div class="meta"><b>Tanggal</b><br><span class="editable">[Isi tanggal penyusunan]</span></div>
-        <div class="meta"><b>Lokasi</b><br><span class="editable">[Alamat/Lokasi Sekolah]</span></div>
-      </div>
-    </div>
+    <h1>PROPOSAL PEMILIHAN PENGURUS OSIS PERIODE 2025/2026</h1>
+    <p class="note">Silakan ganti nama sekolah & tanggal sesuai kebutuhan.</p>
   </header>
 
-  <nav class="toc" aria-label="Daftar isi">
-    <div class="card">
-      <strong>Daftar Isi</strong>
-      <ol>
-        <li><a href="#ringkasan">Ringkasan Eksekutif</a></li>
-        <li><a href="#bentuk-rangkaian">Bentuk & Rangkaian Kegiatan</a></li>
-        <li><a href="#anggaran">Anggaran Biaya</a></li>
-        <li><a href="#penutup">Penutup & Tanda Tangan</a></li>
-      </ol>
-    </div>
-
-    <div class="card muted-block">
-      <strong>Tips Singkat</strong>
-      <p class="muted" style="margin:.5rem 0 0">Gunakan <em>Mode Edit</em> untuk mengganti teks. Isi harga satuan tanpa titik/koma. Tekan &quot;Isi Contoh Harga&quot; untuk demo.</p>
-    </div>
+  <!-- Daftar Isi cepat -->
+  <nav class="toc">
+    <strong>Daftar Isi</strong>
+    <a href="#1">1. Pendahuluan</a>
+    <a href="#2">2. Dasar-Dasar Pemikiran</a>
+    <a href="#3">3. Tujuan</a>
+    <a href="#4">4. Bentuk Kegiatan</a>
+    <a href="#5">5. Peserta Kegiatan</a>
+    <a href="#6">6. Waktu & Tempat</a>
+    <a href="#7">7. Jadwal Kegiatan</a>
+    <a href="#8">8. Anggaran Dana</a>
+    <a href="#9">9. Susunan Panitia</a>
+    <a href="#10">10. Penutup</a>
   </nav>
 
-  <section id="ringkasan">
-    <h3>1. Ringkasan Eksekutif</h3>
-    <p>Proposal ini mengajukan pelaksanaan <b>Pemilihan Ketua OSIS</b> sebagai proses demokratis di lingkungan sekolah. Rangkaian kegiatan dibuat edukatif, transparan, dan partisipatif. Acara utama direncanakan pada <span class="editable">[hari, tanggal utama]</span> di <span class="editable">[lokasi utama]</span>.</p>
+  <!-- 1 -->
+  <section id="1">
+    <h2>1. Pendahuluan</h2>
+    <p>
+      Organisasi Siswa Intra Sekolah (OSIS) merupakan wahana pembelajaran kepemimpinan,
+      tanggung jawab, dan partisipasi aktif siswa. Agar program tetap relevan dan berkelanjutan,
+      diperlukan regenerasi pengurus melalui pemilihan yang jujur, adil, dan transparan.
+      Proposal ini disusun sebagai acuan pelaksanaan Pemilihan Pengurus OSIS Periode 2025/2026.
+    </p>
   </section>
 
-  <section id="bentuk-rangkaian">
-    <h3>2. Bentuk & Rangkaian Kegiatan</h3>
-    <ol>
-      <li>Sosialisasi & Pengumuman</li>
-      <li>Pendaftaran Calon</li>
-      <li>Verifikasi Berkas & Wawancara</li>
-      <li>Debat Kandidat / Penyampaian Visi-Misi</li>
-      <li>Kampanye Damai</li>
-      <li>Masa Tenang</li>
-      <li>Pemungutan Suara</li>
-      <li>Penghitungan Suara</li>
-      <li>Penetapan & Pelantikan</li>
-    </ol>
+  <!-- 2 -->
+  <section id="2">
+    <h2>2. Dasar-Dasar Pemikiran</h2>
+    <p>
+      Kegiatan dilandasi kebutuhan regenerasi kepemimpinan di lingkungan sekolah, pelaksanaan
+      program bidang kesiswaan, serta pengamalan nilai musyawarah dan demokrasi.
+      Melalui pemilihan, siswa mendapatkan pengalaman nyata dalam berdemokrasi serta
+      membangun budaya organisasi yang sehat.
+    </p>
   </section>
 
-  <div class="two-col">
-    <div>
-      <section id="anggaran">
-        <h3>3. Anggaran Biaya (versi terbarui)</h3>
-        <p class="note">Harga yang sudah diisi berasal dari daftar awal; kolom dapat diedit langsung. Total akan dihitung otomatis.</p>
+  <!-- 3 -->
+  <section id="3">
+    <h2>3. Tujuan</h2>
+    <p>
+      Menyelenggarakan pemilihan pengurus OSIS yang demokratis dan berintegritas; menumbuhkan
+      karakter kepemimpinan, kejujuran, dan tanggung jawab; serta memilih pengurus yang
+      kompeten dan visioner untuk memajukan program kesiswaan.
+    </p>
+  </section>
 
-        <table id="anggaranTable" aria-label="Tabel anggaran">
-          <thead>
-            <tr><th style="width:44px">No</th><th>Uraian</th><th style="width:86px">Qty</th><th style="width:140px">Harga Satuan (Rp)</th><th style="width:120px">Jumlah (Rp)</th></tr>
-          </thead>
-          <tbody>
-            <!-- rows generated statically to keep markup readable -->
-            <tr>
-              <td>1</td>
-              <td>Kotak Suara</td>
-              <td><input type="number" value="1" min="1" onchange="recalc()"/></td>
-              <td><input type="text" value="15000" onchange="recalc()"/></td>
-              <td class="sum right">15.000</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Bilik Suara</td>
-              <td><input type="number" value="3" min="1" onchange="recalc()"/></td>
-              <td><input type="text" value="" placeholder="0" onchange="recalc()"/></td>
-              <td class="sum right">0</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Surat Suara (rim/paket)</td>
-              <td><input type="number" value="10" min="1" onchange="recalc()"/></td>
-              <td><input type="text" value="" placeholder="0" onchange="recalc()"/></td>
-              <td class="sum right">0</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>Absen Kelas</td>
-              <td><input type="number" value="12" min="1" onchange="recalc()"/></td>
-              <td><input type="text" value="" placeholder="0" onchange="recalc()"/></td>
-              <td class="sum right">0</td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>Meja</td>
-              <td><input type="number" value="6" min="1" onchange="recalc()"/></td>
-              <td><input type="text" value="" placeholder="0" onchange="recalc()"/></td>
-              <td class="sum right">0</td>
-            </tr>
-            <tr>
-              <td>6</td>
-              <td>Kursi</td>
-              <td><input type="number" value="80" min="1" onchange="recalc()"/></td>
-              <td><input type="text" value="" placeholder="0" onchange="recalc()"/></td>
-              <td class="sum right">0</td>
-            </tr>
-            <tr>
-              <td>7</td>
-              <td>Sound System (sewa)</td>
-              <td><input type="number" value="1" min="1" onchange="recalc()"/></td>
-              <td><input type="text" value="" placeholder="0" onchange="recalc()"/></td>
-              <td class="sum right">0</td>
-            </tr>
-            <tr>
-              <td>8</td>
-              <td>Tinta</td>
-              <td><input type="number" value="1" min="1" onchange="recalc()"/></td>
-              <td><input type="text" value="60000" onchange="recalc()"/></td>
-              <td class="sum right">60.000</td>
-            </tr>
-            <tr>
-              <td>9</td>
-              <td>ID Card Panitia</td>
-              <td><input type="number" value="25" min="1" onchange="recalc()"/></td>
-              <td><input type="text" value="40000" onchange="recalc()"/></td>
-              <td class="sum right">1.000.000</td>
-            </tr>
-            <tr>
-              <td>10</td>
-              <td>MMT / Backdrop</td>
-              <td><input type="number" value="1" min="1" onchange="recalc()"/></td>
-              <td><input type="text" value="" placeholder="0" onchange="recalc()"/></td>
-              <td class="sum right">0</td>
-            </tr>
-            <tr>
-              <td>11</td>
-              <td>Kain (spanduk / dekor)</td>
-              <td><input type="number" value="3" min="1" onchange="recalc()"/></td>
-              <td><input type="text" value="" placeholder="0" onchange="recalc()"/></td>
-              <td class="sum right">0</td>
-            </tr>
-            <tr>
-              <td>12</td>
-              <td>Paku & Pengikat</td>
-              <td><input type="number" value="1" min="1" onchange="recalc()"/></td>
-              <td><input type="text" value="" placeholder="0" onchange="recalc()"/></td>
-              <td class="sum right">0</td>
-            </tr>
-            <tr>
-              <td>13</td>
-              <td>Gabus (busa untuk bilik)</td>
-              <td><input type="number" value="3" min="1" onchange="recalc()"/></td>
-              <td><input type="text" value="20000" onchange="recalc()"/></td>
-              <td class="sum right">60.000</td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <tr><td colspan="4" class="right">Sub-total</td><td id="subTotal" class="right">0</td></tr>
-            <tr><td colspan="4" class="right">Cadangan 10%</td><td id="cadangan" class="right">0</td></tr>
-            <tr><td colspan="4" class="right">Total Anggaran</td><td id="grandTotal" class="right">0</td></tr>
-          </tfoot>
-        </table>
+  <!-- 4 -->
+  <section id="4">
+    <h2>4. Bentuk Kegiatan</h2>
+    <p>
+      Kegiatan dilaksanakan melalui tahapan: penjaringan & verifikasi bakal calon; pengundian
+      nomor urut; penyampaian visi–misi/ debat kandidat; pemungutan suara LUBER; penghitungan
+      suara terbuka; dan penetapan hasil.
+    </p>
+  </section>
 
-        <p class="note">Catatan: Untuk baris yang belum ada harga, silakan isi pada kolom <i>Harga Satuan</i> (angka tanpa titik/koma). Sistem akan menghitung otomatis.</p>
-      </section>
-    </div>
+  <!-- 5 -->
+  <section id="5">
+    <h2>5. Peserta Kegiatan</h2>
+    <p>
+      Seluruh siswa, perwakilan kelas, guru pembina, serta panitia pemilihan. Rincian dapat
+      disesuaikan dengan kondisi sekolah.
+    </p>
+  </section>
 
-    <aside>
-      <div class="card" style="padding:1rem; border-radius:8px; border:1px solid var(--border); background:linear-gradient(180deg,#fff,#fbfdff)">
-        <h3 style="margin:0 0 .5rem">Ringkasan & Tips</h3>
-        <p class="muted">- Anggaran bersifat estimasi; segera update harga satuan yang akurat dari toko/penyedia lokal.<br>- Gunakan cadangan minimal 10% untuk tak terduga.<br>- Kolom dapat diedit langsung — aktifkan <b>Mode Edit</b> lalu ubah angka.</p>
-
-        <div style="margin-top:1rem; display:flex; gap:.5rem">
-          <button class="btn primary" onclick="fillExample()">Isi Contoh Harga Otomatis</button>
-          <button class="btn" onclick="exportCSV()">Ekspor CSV</button>
-        </div>
-      </div>
-
-      <div style="margin-top:1rem; padding:1rem; border-radius:8px; background:linear-gradient(180deg,#fff,#fbfdff); border:1px solid var(--border)">
-        <h4 style="margin:0 .0 .5rem">Info Pelaksanaan</h4>
-        <p class="muted" style="margin:0">Hari/Tanggal: <span class="editable">[Rabu, 15 Januari 2026]</span><br>Waktu: <span class="editable">08.00–14.30 WIB</span><br>Tempat: <span class="editable">Aula / Lapangan Sekolah</span></p>
-      </div>
-    </aside>
-  </div>
-
-  <section id="penutup">
-    <h3>4. Penutup</h3>
-    <p>Demikian proposal kegiatan diajukan. Kami berharap mendapatkan dukungan penuh dari pihak sekolah sehingga pelaksanaan berjalan lancar dan berintegritas.</p>
-
-    <div class="signature-grid">
-      <div class="signature"><div class="muted">Mengetahui,</div><div>Kepala Sekolah</div><div style="height:72px"></div><div><b><span class="editable">[Nama Kepala Sekolah]</span></b></div></div>
-      <div class="signature"><div class="muted">Menyetujui,</div><div>Pembina OSIS</div><div style="height:72px"></div><div><b><span class="editable">[Nama Pembina]</span></b></div></div>
-      <div class="signature"><div class="muted">Pengusul,</div><div>Ketua Panitia</div><div style="height:72px"></div><div><b><span class="editable">[Nama Ketua Panitia]</span></b></div></div>
-      <div class="signature"><div class="muted">Mengetahui,</div><div>Ketua OSIS</div><div style="height:72px"></div><div><b><span class="editable">[Nama Ketua OSIS]</span></b></div></div>
+  <!-- 6 -->
+  <section id="6">
+    <h2>6. Waktu & Tempat</h2>
+    <div class="meta">
+      <div><strong>Nama Kegiatan</strong></div><div>Pemilihan Pengurus OSIS 2025/2026</div>
+      <div><strong>Hari/Tanggal</strong></div><div>Jumat, 22 November 2025</div>
+      <div><strong>Waktu</strong></div><div>07.30 – 12.00 WIB</div>
+      <div><strong>Tempat</strong></div><div>Aula Sekolah</div>
     </div>
   </section>
 
-</article>
+  <!-- 7 -->
+  <section id="7">
+    <h2>7. Jadwal Kegiatan</h2>
+    <table class="table">
+      <thead>
+        <tr><th>Waktu</th><th>Kegiatan</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>07.30 – 08.00</td><td>Registrasi & persiapan</td></tr>
+        <tr><td>08.00 – 08.20</td><td>Pembukaan & sambutan</td></tr>
+        <tr><td>08.20 – 09.30</td><td>Penyampaian visi–misi & tanya jawab</td></tr>
+        <tr><td>09.30 – 11.00</td><td>Pemungutan suara</td></tr>
+        <tr><td>11.00 – 11.30</td><td>Penghitungan suara</td></tr>
+        <tr><td>11.30 – 12.00</td><td>Pengumuman hasil & penutup</td></tr>
+      </tbody>
+    </table>
+    <p class="note">*Silakan ubah jam/urutan sesuai kebutuhan.</p>
+  </section>
 
-  </div>  <script>
-    // Utility: parse number from input (accepts digits only)
-    function parseCurrency(v){
-      if(!v && v !== 0) return 0;
-      const n = String(v).replace(/[^0-9]/g,'');
-      return n ? Number(n) : 0;
-    }
+  <!-- 8 -->
+  <section id="8">
+    <h2>8. Anggaran Dana</h2>
+    <table class="table">
+      <thead>
+        <tr><th style="width:60px">No</th><th>Uraian</th><th style="width:160px">Jumlah (Rp)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Spanduk & dekorasi</td><td>250.000</td></tr>
+        <tr><td>2</td><td>Surat suara & alat tulis</td><td>150.000</td></tr>
+        <tr><td>3</td><td>Konsumsi panitia</td><td>300.000</td></tr>
+        <tr><td>4</td><td>Publikasi & dokumentasi</td><td>100.000</td></tr>
+        <tr><td>5</td><td>Lain-lain (cadangan)</td><td>100.000</td></tr>
+        <tr><th colspan="2" style="text-align:right">Total</th><th>900.000</th></tr>
+      </tbody>
+    </table>
+    <p class="note">Sumber dana: Kas OSIS & dukungan sekolah (disesuaikan).</p>
+  </section>
 
-    function formatID(n){
-      return Number(n).toLocaleString('id-ID');
-    }
+  <!-- 9 -->
+  <section id="9">
+    <h2>9. Susunan Panitia</h2>
+    <p class="note">Struktur bercabang — isi sesuai data panitia.</p>
 
-    function recalc(){
-      const rows = document.querySelectorAll('#anggaranTable tbody tr');
-      let subtotal = 0;
-      rows.forEach(row=>{
-        const qty = Number(row.querySelector('input[type="number"]').value) || 0;
-        const priceInput = row.querySelector('input[type="text"]');
-        const price = parseCurrency(priceInput.value);
-        const total = qty * price;
-        const sumCell = row.querySelector('.sum');
-        sumCell.textContent = formatID(total);
-        subtotal += total;
-      });
-      document.getElementById('subTotal').textContent = formatID(subtotal);
-      const cad = Math.round(subtotal * 0.10);
-      document.getElementById('cadangan').textContent = formatID(cad);
-      document.getElementById('grandTotal').textContent = formatID(subtotal + cad);
-    }
+    <div class="chart">
+      <div class="tree">
+        <ul>
+          <li class="branch">
+            <div class="node">
+              <div class="role">Pelindung</div>
+              <div class="name">Kepala Sekolah [Nama]</div>
+              <span class="toggle">sembunyikan/lihat</span>
+            </div>
 
-    // init
-    window.addEventListener('load', ()=>{
-      // format existing sums
-      document.querySelectorAll('#anggaranTable tbody .sum').forEach(cell=>{
-        cell.textContent = formatID(Number(cell.textContent.replace(/[^0-9]/g,'')) || 0);
-      });
-      recalc();
+            <ul>
+              <li class="branch">
+                <div class="node">
+                  <div class="role">Penanggung Jawab</div>
+                  <div class="name">Wakil Kepala Sekolah Bid. Kesiswaan [Nama]</div>
+                  <span class="toggle">sembunyikan/lihat</span>
+                </div>
+
+                <ul>
+                  <li class="branch">
+                    <div class="node">
+                      <div class="role">Pembina OSIS</div>
+                      <div class="name">[Nama Pembina]</div>
+                      <div class="detail">Pembinaan & koordinasi umum</div>
+                    </div>
+                  </li>
+
+                  <li class="branch">
+                    <div class="node">
+                      <div class="role">Ketua Panitia</div>
+                      <div class="name">Alam Ainun Madun</div>
+                      <div class="detail">Penanggung jawab pelaksanaan</div>
+                      <span class="toggle">sembunyikan/lihat</span>
+                    </div>
+
+                    <ul>
+                      <li class="branch">
+                        <div class="node">
+                          <div class="role">Wakil Ketua</div>
+                          <div class="name">Milani</div>
+                        </div>
+                      </li>
+
+                      <li class="branch">
+                        <div class="node">
+                          <div class="role">Sekretaris</div>
+                          <div class="name">1. Dinar<br>2. Naija</div>
+                          <ul>
+                            <li><div class="detail">Administrasi & notulensi</div></li>
+                            <li><div class="detail">Surat-menyurat & arsip</div></li>
+                          </ul>
+                        </div>
+                      </li>
+
+                      <li class="branch">
+                        <div class="node">
+                          <div class="role">Bendahara</div>
+                          <div class="name">1. Saloka<br>2. Dela</div>
+                          <ul>
+                            <li><div class="detail">RAB & pertanggungjawaban</div></li>
+                            <li><div class="detail">Bukti bayar & kas</div></li>
+                          </ul>
+                        </div>
+                      </li>
+
+                      <li class="branch">
+                        <div class="node">
+                          <div class="role">Seksi Acara</div>
+                          <div class="name">Rima, Kiran, Fendi, Aji</div>
+                          <ul>
+                            <li><div class="detail">Rundown & protokol</div></li>
+                            <li><div class="detail">Debat/visi–misi</div></li>
+                          </ul>
+                        </div>
+                      </li>
+
+                      <li class="branch">
+                        <div class="node">
+                          <div class="role">Seksi Perlengkapan</div>
+                          <div class="name">Andini, Zaskia, Nisa, Ima</div>
+                          <ul>
+                            <li><div class="detail">Peralatan, dekor, bilik suara</div></li>
+                            <li><div class="detail">Sound system & kebutuhan teknis</div></li>
+                          </ul>
+                        </div>
+                      </li>
+
+                      <li class="branch">
+                        <div class="node">
+                          <div class="role">Seksi Konsumsi</div>
+                          <div class="name">Dinda, Aul, Aura</div>
+                          <ul>
+                            <li><div class="detail">Konsumsi panitia & tamu</div></li>
+                            <li><div class="detail">Distribusi & kebersihan</div></li>
+                          </ul>
+                        </div>
+                      </li>
+
+                      <li class="branch">
+                        <div class="node">
+                          <div class="role">Seksi Dokumentasi</div>
+                          <div class="name">Keyla</div>
+                          <ul>
+                            <li><div class="detail">Foto/Video kegiatan</div></li>
+                            <li><div class="detail">Arsip publikasi</div></li>
+                          </ul>
+                        </div>
+                      </li>
+
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 -->
+  <section id="10">
+    <h2>10. Penutup</h2>
+    <p>
+      Demikian proposal ini disusun sebagai pedoman pelaksanaan Pemilihan Pengurus OSIS
+      Periode 2025/2026. Besar harapan kami kegiatan dapat berjalan lancar, tertib,
+      dan memberikan dampak positif bagi seluruh warga sekolah. Terima kasih atas dukungan
+      dan kerjasama semua pihak.
+    </p>
+
+    <div class="sign">
+      <div class="box">
+        <strong>Mengetahui,</strong><br/>Kepala Sekolah<br/><br/><br/>(__________________)
+      </div>
+      <div class="box">
+        <strong>Menyetujui,</strong><br/>Wakil Kepala Sekolah Bid. Kesiswaan<br/><br/><br/>(__________________)
+      </div>
+      <div class="box">
+        <strong>Pembina OSIS</strong><br/><br/><br/>(__________________)
+      </div>
+      <div class="box">
+        <strong>Ketua Panitia</strong><br/><br/><br/>(__________________)
+      </div>
+    </div>
+  </section>
+
+  <p class="note">Catatan: Seluruh teks/angka bersifat contoh. Edit sesuai data sekolahmu.</p>
+
+</div>
+
+<!-- Toggle expand/collapse org chart -->
+<script>
+  document.querySelectorAll('.toggle').forEach(t=>{
+    t.addEventListener('click', ()=>{
+      const li = t.closest('li');
+      li.classList.toggle('collapsed');
     });
-
-    // Edit mode toggle
-    const editBtn = document.getElementById('editToggle');
-    editBtn.addEventListener('click', ()=>{
-      const article = document.getElementById('proposal');
-      const now = article.getAttribute('contenteditable') === 'true';
-      article.setAttribute('contenteditable', String(!now));
-      editBtn.textContent = now ? 'Mode Edit' : 'Selesai Edit';
-      alert('Mode edit: ' + (!now ? 'ON — klik teks untuk ubah.' : 'OFF — perubahan disimpan di browser.') );
-    });
-
-    function fillExample(){
-      const mapping = {
-        'Bilik Suara': 120000,
-        'Surat Suara (rim/paket)': 25000,
-        'Absen Kelas': 5000,
-        'Meja': 75000,
-        'Kursi': 45000,
-        'Sound System (sewa)': 400000,
-        'MMT / Backdrop': 350000,
-        'Kain (spanduk / dekor)': 60000,
-        'Paku & Pengikat': 15000
-      };
-      document.querySelectorAll('#anggaranTable tbody tr').forEach(row=>{
-        const desc = row.children[1].innerText.trim();
-        const priceInput = row.querySelector('input[type="text"]');
-        if(mapping[desc]) priceInput.value = mapping[desc];
-      });
-      recalc();
-    }
-
-    function exportCSV(){
-      const rows = [];
-      const header = ['No','Uraian','Qty','Harga Satuan (Rp)','Jumlah (Rp)'];
-      rows.push(header.join(','));
-      document.querySelectorAll('#anggaranTable tbody tr').forEach((r,i)=>{
-        const no = i+1;
-        const uraian = r.children[1].innerText.replace(/\n/g,' ').replace(/,/g,'');
-        const qty = r.querySelector('input[type="number"]').value;
-        const price = parseCurrency(r.querySelector('input[type="text"]').value) || 0;
-        const jumlah = r.querySelector('.sum').textContent.replace(/\./g,'') || 0;
-        rows.push([no, '"'+uraian+'"', qty, price, jumlah].join(','));
-      });
-      const footer = [];
-      footer.push([',,,Sub-total,'+document.getElementById('subTotal').textContent.replace(/\./g,'')].join(','));
-      footer.push([',,,Cadangan,'+document.getElementById('cadangan').textContent.replace(/\./g,'')].join(','));
-      footer.push([',,,Total,'+document.getElementById('grandTotal').textContent.replace(/\./g,'')].join(','));
-      const csvContent = rows.concat(footer).join('\n');
-      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(blob);
-      link.download = 'anggaran_pemilihan_osis.csv';
-      link.click();
-    }
-
-    function resetValues(){
-      if(confirm('Reset harga ke contoh default?')){
-        fillExample();
-      }
-    }
-
-    function findSection(q){
-      if(!q) return;
-      q = q.trim().toLowerCase();
-      const map = { 'anggaran':'anggaran', 'ringkasan':'ringkasan','penutup':'penutup','rangkaian':'bentuk-rangkaian' };
-      const id = map[q] || q;
-      const el = document.getElementById(id);
-      if(el) el.scrollIntoView({behavior:'smooth', block:'center'});
-    }
-
-  </script></body>
-                    </html>
+  });
+</script>
+</body>
+</html>
